@@ -4,29 +4,34 @@ import java.util.*;
 
 public class BucketSortCollection<T extends Number> implements BucketSort<T> {
 
-    private final Integer maxVal = 1024;
     private final Vector<TreeMap<T, Integer>> collection;
 
     public BucketSortCollection() {
         this.collection = new Vector<TreeMap<T, Integer>>();
     }
 
-    private Integer countHashVal(T value) {
-        return  Math.abs((Integer) value) * collection.size() / maxVal;
+    private Integer countHashVal(T value, int maxVal, int minVal) {
+        return  ((Integer) value - minVal) * collection.size() / (maxVal + 1 - minVal);
     }
 
     public void sort(T[] array) {
         if (array != null) {
+            int maxVal = Integer.MIN_VALUE;
+            int minVal = Integer.MAX_VALUE;
             for (int i = 0; i < array.length; i++) {
                 collection.add(new TreeMap<T, Integer>());
+                if ((Integer) array[i] > maxVal) {
+                    maxVal = (Integer) array[i];
+                }
+                if ((Integer) array[i] < minVal) {
+                    minVal = (Integer) array[i];
+                }
+            }
+            if (minVal == maxVal) {
+                return;
             }
             for (T t : array) {
-                if ((maxVal <= (Integer) t) || ((Integer) t < 0)) {
-                    System.err.println("Поддерживаются лишь числа в указанном диапазоне: от 0 до " + maxVal);
-                    collection.clear();
-                    return;
-                }
-                int index = countHashVal(t);
+                int index = countHashVal(t, maxVal, minVal);
                 TreeMap<T, Integer> map = collection.get(index);
                 if (map.containsKey(t)) {
                     map.put(t, map.get(t) + 1);

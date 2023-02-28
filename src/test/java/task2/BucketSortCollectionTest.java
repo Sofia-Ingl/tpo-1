@@ -21,21 +21,6 @@ public class BucketSortCollectionTest {
         assertEquals(sortingCollection.getCollection().size(), 0);
     }
 
-    @Test
-    void arrayValuesOutOfBoundsTest() {
-        Integer[] arr = new Integer[]{477, 8, 876, 600, 919, 648, 93, 10000, 17};
-        Integer[] resultArr = new Integer[]{477, 8, 876, 600, 919, 648, 93, 10000, 17};
-        sortingCollection.sort(arr);
-        assertArrayEquals(arr, resultArr);
-        assertEquals(sortingCollection.getCollection().size(), 0);
-
-        Integer[] arr1 = new Integer[]{477, 8, 876, 600, 919, 648, 93, -1, 17};
-        Integer[] resultArr1 = new Integer[]{477, 8, 876, 600, 919, 648, 93, -1, 17};
-        sortingCollection.sort(arr1);
-        assertArrayEquals(arr1, resultArr1);
-        assertEquals(sortingCollection.getCollection().size(), 0);
-    }
-
 
     @Test
     void arrayStandardTest() {
@@ -46,11 +31,20 @@ public class BucketSortCollectionTest {
         assertEquals(sortingCollection.getCollection().size(), 0);
     }
 
+    @Test
+    void arrayNegativesTest() {
+        Integer[] arr = new Integer[]{477, 8, 876, -2, 600, 919, 648, 93, 17, -988, 1027, 0};
+        Integer[] resultArr = new Integer[]{-988, -2, 0, 8, 17, 93, 477, 600, 648, 876, 919, 1027};
+        sortingCollection.sort(arr);
+        assertArrayEquals(arr, resultArr);
+        assertEquals(sortingCollection.getCollection().size(), 0);
+    }
+
 
     @Test
     void arrayRepetitionsTest() {
-        Integer[] arr = new Integer[]{477, 8, 93, 876, 600, 919, 8, 8, 648, 93, 17};
-        Integer[] resultArr = new Integer[]{8, 8, 8, 17, 93, 93, 477, 600, 648, 876, 919};
+        Integer[] arr = new Integer[]{477, 8, 93, 876, 600, 919, -1, 8, 8, 648, 93, 17, -1};
+        Integer[] resultArr = new Integer[]{-1, -1, 8, 8, 8, 17, 93, 93, 477, 600, 648, 876, 919};
         sortingCollection.sort(arr);
         assertArrayEquals(arr, resultArr);
         assertEquals(sortingCollection.getCollection().size(), 0);
