@@ -14,10 +14,15 @@ public class BucketSortCollectionTest {
     }
 
     @Test
-    void nullableArrayTest() {
+    void arrayNullableOrEmptyTest() {
         Integer[] arr = null;
         sortingCollection.sort(arr);
         assertArrayEquals(arr, null);
+        assertEquals(sortingCollection.getCollection().size(), 0);
+
+        arr = new Integer[]{};
+        sortingCollection.sort(arr);
+        assertArrayEquals(arr, new Integer[] {});
         assertEquals(sortingCollection.getCollection().size(), 0);
     }
 
