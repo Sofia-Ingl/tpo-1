@@ -1,8 +1,11 @@
 package task3;
 
+import lombok.Data;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Data
 public class GreatHole {
 
     private boolean isOpened = false;

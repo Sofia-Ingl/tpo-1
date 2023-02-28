@@ -1,5 +1,8 @@
 package task3;
 
+import lombok.Data;
+
+@Data
 public abstract class AnimateObject extends TranslocatableObject {
 
     final int maxSuffocationLevel = Integer.MAX_VALUE;

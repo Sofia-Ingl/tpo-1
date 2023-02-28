@@ -1,8 +1,11 @@
 package task3;
 
+import lombok.Data;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Data
 public class Planet {
 
     String name;
@@ -27,7 +30,7 @@ public class Planet {
         } else {
             amountOfFood.put(foodType, amountOfFood.get(foodType) + amount);
         }
-        if ((amount / 1000 > 0) && hungerStatus == HungerStatus.HUNGRY) {
+        if (( amountOfFood.get(foodType) >= 1000) && (hungerStatus != HungerStatus.NOT_HUNGRY)) {
             hungerStatus = HungerStatus.NOT_HUNGRY;
         }
 

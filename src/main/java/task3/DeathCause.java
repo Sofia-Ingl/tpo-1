@@ -2,8 +2,8 @@ package task3;
 
 public enum DeathCause {
 
-    SUFFOCATION ("от удивления"),
-    ASTONISHMENT ("от удушья"),
+    SUFFOCATION ("от удушья"),
+    ASTONISHMENT ("от удивления"),
     COMBINED ("отчасти от удушья, отчасти от удивления"),
     NONE ("персонаж жив");
 

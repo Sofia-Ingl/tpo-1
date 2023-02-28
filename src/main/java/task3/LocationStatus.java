@@ -1,5 +1,6 @@
 package task3;
 
+
 public enum LocationStatus {
     LOST_IN_UNIVERSE ("уплыл в даль Вселенной"),
     UNKNOWN ("статус неизвестен");

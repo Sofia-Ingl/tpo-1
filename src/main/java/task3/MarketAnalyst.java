@@ -1,5 +1,8 @@
 package task3;
 
+import lombok.Data;
+
+@Data
 public class MarketAnalyst extends AnimateObject {
 
     final int maxAstonishmentLevel = Integer.MAX_VALUE;
@@ -17,19 +20,14 @@ public class MarketAnalyst extends AnimateObject {
         }
     }
 
-
-//    public void raiseAstonishmentToMax() {
-//        astonishmentLevel = maxAstonishmentLevel;
-//    }
-
     protected void tryDie() {
-        if (!isDead && astonishmentLevel == maxAstonishmentLevel) {
-            isDead = true;
-            deathCause = DeathCause.ASTONISHMENT;
-        }
         if (!isDead && astonishmentLevel >= maxAstonishmentLevel/2 && suffocationLevel >= maxSuffocationLevel/2) {
             isDead = true;
             deathCause = DeathCause.COMBINED;
+        }
+        if (!isDead && astonishmentLevel == maxAstonishmentLevel) {
+            isDead = true;
+            deathCause = DeathCause.ASTONISHMENT;
         }
         super.tryDie();
     }

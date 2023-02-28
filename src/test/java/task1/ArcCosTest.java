@@ -21,13 +21,13 @@ public class ArcCosTest {
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {-0.999999, -0.5, -0.000001})
+    @ValueSource(doubles = {-0.999999, -0.75, -0.5, -0.25, -0.000001})
     public void xNegativeTest(double value) {
         Assertions.assertEquals(Math.acos(value), ArcCos.arccos(value), delta);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {0.999999, 0.5, 0.000001})
+    @ValueSource(doubles = {0.999999, 0.75, 0.5, 0.25, 0.000001})
     public void xPositiveTest(double value) {
         Assertions.assertEquals(Math.acos(value), ArcCos.arccos(value), delta);
     }
@@ -39,13 +39,13 @@ public class ArcCosTest {
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {-0.999999, -0.5, -0.000001})
+    @ValueSource(doubles = {-0.999999, -0.75, -0.5, -0.25, -0.000001})
     public void xNegativeHighPrecisionTest(double value) {
         Assertions.assertEquals(Math.acos(value), ArcCos.arccos(value), deltaHighPrecision);
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {0.999999, 0.5, 0.000001})
+    @ValueSource(doubles = {0.999999, 0.75, 0.5, 0.25, 0.000001})
     public void xPositiveHighPrecisionTest(double value) {
         Assertions.assertEquals(Math.acos(value), ArcCos.arccos(value), deltaHighPrecision);
     }

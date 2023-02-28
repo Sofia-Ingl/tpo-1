@@ -1,7 +1,10 @@
 package task3;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class StarSystem {
 
     String name;

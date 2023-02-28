@@ -28,7 +28,14 @@ public class BucketSortCollectionTest {
         sortingCollection.sort(arr);
         assertArrayEquals(arr, resultArr);
         assertEquals(sortingCollection.getCollection().size(), 0);
+
+        Integer[] arr1 = new Integer[]{477, 8, 876, 600, 919, 648, 93, -1, 17};
+        Integer[] resultArr1 = new Integer[]{477, 8, 876, 600, 919, 648, 93, -1, 17};
+        sortingCollection.sort(arr1);
+        assertArrayEquals(arr1, resultArr1);
+        assertEquals(sortingCollection.getCollection().size(), 0);
     }
+
 
     @Test
     void arrayStandardTest() {
